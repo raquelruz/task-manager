@@ -92,3 +92,21 @@ button:hover {
 #task-list li button:hover {
     background-color: #b02a37;
 }
+
+.task-filters {
+    display: flex;
+    gap: 8px;
+    margin-top: 24px;
+    flex-wrap: wrap;
+}
+
+.task-filters button {
+    flex: 1;
+    padding: 10px;
+    background-color: #e5e7eb;
+    color: #252525;
+}
+
+.task-filters button:hover {
+    background-color: #d1d5db;
+}

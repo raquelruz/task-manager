@@ -1,6 +1,16 @@
 const taskForm = document.querySelector("#task-form");
 const taskInput = document.querySelector("#task-input");
 const taskList = document.querySelector("#task-list");
+const filterButtons = document.querySelectorAll("[data-filter]");
+
+let currentFilter = "all";
+
+filterButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+        currentFilter = button.dataset.filter;
+        applyTaskFilter();
+    });
+});
 
 taskForm.addEventListener("submit", (event) => {
 	event.preventDefault();
@@ -12,6 +22,8 @@ taskForm.addEventListener("submit", (event) => {
 	}
 
 	const taskItem = document.createElement("li");
+
+    taskItem.dataset.completed = "false";
 
 	const taskCheckbox = document.createElement("input");
 	taskCheckbox.type = "checkbox";
@@ -30,8 +42,10 @@ taskForm.addEventListener("submit", (event) => {
 	taskCheckbox.addEventListener("change", () => {
 		if (taskCheckbox.checked) {
 			taskText.classList.add("completed");
+            taskItem.dataset.completed = "true";
 		} else {
 			taskText.classList.remove("completed");
+            taskItem.dataset.completed = "false";
 		}
 	});
 
@@ -40,3 +54,27 @@ taskForm.addEventListener("submit", (event) => {
 
 	taskInput.value = "";
 });
+
+const applyTaskFilter = () => {
+    const tasks = taskList.querySelectorAll("li");
+
+    tasks.forEach((task) => {
+        const isCompleted = task.dataset.completed === "true";
+
+        if (currentFilter === "all") {
+            task.style.display = "flex";
+        } else if (currentFilter === "pending") {
+            if (isCompleted) {
+                task.style.display = "none";
+            } else {
+                task.style.display = "flex";
+            }
+        } else if (currentFilter === "completed") {
+            if (isCompleted) {
+                task.style.display = "flex";
+            } else {
+                task.style.display = "none";
+            }
+        }
+    });
+}

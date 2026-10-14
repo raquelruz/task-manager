@@ -1,0 +1,65 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f5f7;
+    color: #252525;
+}
+
+.app {
+    width: 90%;
+    max-width: 600px;
+    margin: 60px auto;
+    padding: 30px;
+    background-color: white;
+    border-radius: 12px;
+}
+
+.app-header {
+    margin-bottom: 30px;
+}
+
+.app-header h1 {
+    margin-bottom: 8px;
+}
+
+.app-header p {
+    color: #666;
+}
+
+#task-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+#task-input {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+button {
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    background-color: #3157c8;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #2445a5;
+}
+
+#task-list {
+    padding: 0;
+    margin-top: 24px;
+    list-style: none;
+}

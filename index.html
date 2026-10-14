@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" type="module"></script>
+</head>
+<body>
+    <main class="app">
+        <header class="app-header">
+            <h1>Mis tareas</h1>
+            <p>Organiza tu día, paso a paso.</p>
+        </header>
+
+        <section class="task-section">
+            <form id="task-form">
+                <label for="task-input">Nueva tarea</label>
+                <input type="text" id="task-input" placeholder="¿Qué necesitas hacer?">
+                <button type="submit">Añadir tarea</button>
+            </form>
+
+            <ul id="task-list"></ul>
+        </section>
+    </main>
+</body>
+</html>

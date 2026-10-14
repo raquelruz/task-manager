@@ -7,5 +7,8 @@ taskForm.addEventListener("submit", (event) => {
 
     const taskTitle = taskInput.value.trim();
 
-    console.log(taskTitle);
+    const taskItem = document.createElement("li");
+    taskItem.textContent = taskTitle;
+
+    taskList.append(taskItem);
 })

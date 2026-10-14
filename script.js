@@ -53,6 +53,8 @@ taskForm.addEventListener("submit", (event) => {
 	taskList.append(taskItem);
 
 	taskInput.value = "";
+
+    applyTaskFilter();
 });
 
 const applyTaskFilter = () => {

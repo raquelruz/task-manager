@@ -3,18 +3,32 @@ const taskInput = document.querySelector("#task-input");
 const taskList = document.querySelector("#task-list");
 
 taskForm.addEventListener("submit", (event) => {
-    event.preventDefault();
+	event.preventDefault();
 
-    const taskTitle = taskInput.value.trim();
+	const taskTitle = taskInput.value.trim();
 
-    if (taskTitle === "") {
-        return;
-    }
+	if (taskTitle === "") {
+		return;
+	}
 
-    const taskItem = document.createElement("li");
-    taskItem.textContent = taskTitle;
+	const taskItem = document.createElement("li");
 
-    taskList.append(taskItem);
+	const taskCheckbox = document.createElement("input");
+	taskCheckbox.type = "checkbox";
 
-    taskInput.value = "";
-})
+	const taskText = document.createElement("span");
+	taskText.textContent = taskTitle;
+
+	taskCheckbox.addEventListener("change", () => {
+		if (taskCheckbox.checked) {
+			taskText.classList.add("completed");
+		} else {
+			taskText.classList.remove("completed");
+		}
+	});
+
+	taskItem.append(taskCheckbox, taskText);
+	taskList.append(taskItem);
+
+	taskInput.value = "";
+});

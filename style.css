@@ -110,3 +110,8 @@ button:hover {
 .task-filters button:hover {
     background-color: #d1d5db;
 }
+
+.task-filters button.active {
+    background-color: #3157c8;
+    color: white;
+}

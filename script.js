@@ -8,9 +8,18 @@ let currentFilter = "all";
 filterButtons.forEach((button) => {
     button.addEventListener("click", () => {
         currentFilter = button.dataset.filter;
+
+        filterButtons.forEach((filterButton) => {
+            filterButton.classList.remove("active");
+        })
+
+        button.classList.add("active");
+
         applyTaskFilter();
     });
 });
+
+document.querySelector('[data-filter="all"]').classList.add("active");
 
 taskForm.addEventListener("submit", (event) => {
 	event.preventDefault();

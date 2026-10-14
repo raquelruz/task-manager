@@ -19,6 +19,14 @@ taskForm.addEventListener("submit", (event) => {
 	const taskText = document.createElement("span");
 	taskText.textContent = taskTitle;
 
+    const deleteButton = document.createElement("button");
+    deleteButton.textContent = "Eliminar";
+    deleteButton.type = "button";
+
+    deleteButton.addEventListener("click", () => {
+        taskItem.remove();
+    })
+
 	taskCheckbox.addEventListener("change", () => {
 		if (taskCheckbox.checked) {
 			taskText.classList.add("completed");
@@ -27,7 +35,7 @@ taskForm.addEventListener("submit", (event) => {
 		}
 	});
 
-	taskItem.append(taskCheckbox, taskText);
+	taskItem.append(taskCheckbox, taskText, deleteButton);
 	taskList.append(taskItem);
 
 	taskInput.value = "";
